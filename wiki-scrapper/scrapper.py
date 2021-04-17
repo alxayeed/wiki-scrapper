@@ -10,23 +10,21 @@ response = requests.get(url).text
 bs_object = BeautifulSoup(response, 'html.parser')
 
 data = bs_object.find('table', class_='wikitable sortable mw-collapsible')
-caption = data.caption.text
 all_rows = data.find_all('tr')
 
 
 # this list will contain each row of the table as inner list
 table_data = []
-for tr in all_rows[1:6]:
+for tr in all_rows[1:11]:
     row = []
     for t in tr.select('td')[:-1]:
         row.extend([t.text.strip()])
     table_data.append(row)
-    break
 
 
 @app.route('/')
 def home():
-    return render_template('index.html', caption=caption, table_data=table_data)
+    return render_template('index.html', table_data=table_data)
 
 
 if __name__ == "__main__":

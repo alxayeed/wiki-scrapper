@@ -11,7 +11,9 @@
 </head>
 <body>
     <div class="p-8">
-        <h1 class="text-4xl text-center bg-indigo-300 rounded-2xl p-4 m-4">{{caption }}</h1>
+        <h1 class="text-6xl text-center text-white bg-indigo-300 rounded-2xl p-4 m-4 ">
+            List of the largest 10 Internet companies
+        </h1>
 
         <table class="w-full">
             <thead>
@@ -29,12 +31,13 @@
             </thead>
             <tbody>
                 {% for row in table_data %}
-            <tr>
-                {% for cols in row %}
-                <td class="px-8 text-center">{{ cols }}</td>
+
+                <tr class="py-8 bg-red-100">
+                    {% for cols in row %}
+                    <td class="px-8 text-center">{{ cols }}</td>
+                    {% endfor %}
+                </tr>
                 {% endfor %}
-            </tr>
-            {% endfor %}
             </tbody>
         </table>
     </div>

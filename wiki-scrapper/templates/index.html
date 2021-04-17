@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TAILWIND -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Wiki Scrapper</title>
 </head>
 <body>
-    <h1>Hii Al!!</h1>
-    <p>{{caption }}</p>
+    <div class="p-8">
+        <h1 class="text-4xl text-center bg-indigo-300 rounded-2xl p-4 m-4">{{caption }}</h1>
+
+        <table class="w-full">
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Company</th>
+                <th>Revenue</th>
+                <th>F.Y.</th>
+                <th>Employees</th>
+                <th>Market cap. ($B)</th>
+                <th>Headquarters</th>
+                <th>Founded</th>
+                <th>Industry</th>
+            </tr>
+            </thead>
+            <tbody>
+                {% for row in table_data %}
+            <tr>
+                {% for cols in row %}
+                <td class="px-8 text-center">{{ cols }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

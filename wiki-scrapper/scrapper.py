@@ -23,8 +23,6 @@ for tr in all_rows[1:6]:
     table_data.append(row)
     break
 
-print(table_data)
-
 
 @app.route('/')
 def home():
